@@ -12,6 +12,7 @@ import numpy as np
 
 
 
+
 MAX_FILE_SIZE =  16 * 1024 * 1024  # 16 MB Image Size Limit
 
 # init App
