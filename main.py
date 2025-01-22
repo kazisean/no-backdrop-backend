@@ -3,6 +3,7 @@ from fastapi.responses import StreamingResponse, FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 import mimetypes
 from io import BytesIO
+import os
 from rembg import remove
 from PIL import Image
 from PIL import ImageFilter
@@ -33,6 +34,11 @@ app.add_middleware(
     allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
     allow_headers=["*"],  # Allow all headers
 )
+
+# Render port issue
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
 
 
 @app.get("/")
